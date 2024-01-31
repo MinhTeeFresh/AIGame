@@ -2,9 +2,10 @@ extends CharacterBody2D
 
 const speed = 100
 var current_dir = "none"
+var enemy = null
 
 func _ready():
-	$AnimatedSprite2D.play("idle")
+	$AnimatedSprite2D.play("cat")
 
 func _physics_process(delta):
 	player_movement(delta)
@@ -39,7 +40,7 @@ func player_movement(delta):
 	move_and_slide()
 
 func play_anim(movement):
-	var dir = "current_dir"
+	var dir = current_dir
 	var anim = $AnimatedSprite2D
 	
 	if dir == "right":
@@ -60,10 +61,30 @@ func play_anim(movement):
 		if movement == 1:
 			anim.play("front_walk")
 		elif movement == 0:
-			anim.play("idle")
+			anim.play("cat")
 	if dir == "up":
 		anim.flip_h = true
 		if movement == 1:
 			anim.play("back_walk")
 		elif movement == 0:
 			anim.play("back_idle")
+			
+func player():
+	pass
+			
+func _on_area_2d_body_entered(body):
+	if body.has_method("enemy1"):
+		enemy = "enemy1"
+
+func _on_area_2d_body_exited(body):
+	if body.has_method("enemy"):
+		enemy = null
+		
+func enemy_inter():
+	pass
+	
+func _input(event):
+	if Input.is_action_pressed('e_key') and enemy != null:
+			#$LineEdit.show()
+			print("pressed E")
+			#get_tree().set_input_as_handled()

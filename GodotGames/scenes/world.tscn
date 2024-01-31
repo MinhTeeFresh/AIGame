@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://1x6b5yspn3ss"]
+[gd_scene load_steps=4 format=3 uid="uid://1x6b5yspn3ss"]
+
+[ext_resource type="Texture2D" uid="uid://xdxihmbgro" path="res://sprites/objects/newbackground.png" id="1_r1nce"]
+[ext_resource type="PackedScene" uid="uid://cbwdwr7fmy7fr" path="res://scenes/player.tscn" id="2_lb3l7"]
+[ext_resource type="PackedScene" uid="uid://dqoie45rsj0c5" path="res://scenes/npc.tscn" id="3_sokjx"]
 
 [node name="world" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 867.0
+offset_bottom = 850.0
+texture = ExtResource("1_r1nce")
+
+[node name="player" parent="." instance=ExtResource("2_lb3l7")]
+position = Vector2(349, 192)
+scale = Vector2(2, 2)
+
+[node name="NPC" parent="." instance=ExtResource("3_sokjx")]
+position = Vector2(422, 191)
+scale = Vector2(2, 2)
