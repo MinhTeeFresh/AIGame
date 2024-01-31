@@ -1,11 +1,5 @@
 extends CharacterBody2D
 
-func enemy():
-	pass
-	
-func enemy1():
-	pass
-
 var motion = Vector2()
 var state = 0
 

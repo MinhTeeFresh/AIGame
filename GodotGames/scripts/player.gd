@@ -73,8 +73,8 @@ func player():
 	pass
 			
 func _on_area_2d_body_entered(body):
-	if body.has_method("enemy1"):
-		enemy = "enemy1"
+	enemy = body.get_name()
+	print(enemy)
 
 func _on_area_2d_body_exited(body):
 	if body.has_method("enemy"):
