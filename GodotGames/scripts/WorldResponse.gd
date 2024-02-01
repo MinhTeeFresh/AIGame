@@ -1,6 +1,6 @@
 extends Label
 
-var response = "Hello, world!"
+var response = "jfdsklajfklsjaofijdsioafidosnoivdsaiofndosafiodsioavniodsnfiodsaiogjdsafjidanvonbdasoindfisbafibdiaowfeijafiaehsiofdsioafjhiodasfiaiosbhdisaofhidosahjfiodsajfiodsaifhdasioghioasjfidojsaivondasiobioj"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

@@ -12,6 +12,7 @@ func _ready():
 @onready var WorldLineEdit = get_node("WorldLineEdit")
 @onready var WorldResponse = get_node("WorldResponse")
 @onready var player = get_node("../player")
+@onready var escapeinst = get_node("escapeinst")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -26,7 +27,9 @@ func _input(event):
 		WorldLineEdit.hide()
 		WorldLineEdit.clear()
 		WorldResponse.hide()
+		escapeinst.show()
 		
 	if Input.is_action_pressed('e_key') and player.enemy != null and player.enemy != "player" and dialog == false:
 		dialog = true
+		escapeinst.show()
 		

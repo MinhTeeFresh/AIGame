@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://1x6b5yspn3ss"]
+[gd_scene load_steps=10 format=3 uid="uid://1x6b5yspn3ss"]
 
 [ext_resource type="Texture2D" uid="uid://xdxihmbgro" path="res://sprites/objects/newbackground.png" id="1_r1nce"]
 [ext_resource type="PackedScene" uid="uid://cbwdwr7fmy7fr" path="res://scenes/player.tscn" id="2_lb3l7"]
@@ -6,6 +6,9 @@
 [ext_resource type="Script" path="res://scripts/chat.gd" id="4_2ayif"]
 [ext_resource type="Script" path="res://scripts/WorldLineEdit.gd" id="5_cahbm"]
 [ext_resource type="Script" path="res://scripts/WorldResponse.gd" id="5_okymo"]
+[ext_resource type="Script" path="res://scripts/escapeinst.gd" id="7_aiyee"]
+[ext_resource type="AudioStream" uid="uid://b02jef21vdgm1" path="res://fluteThingVVideoGame.mp3" id="7_t1vkv"]
+[ext_resource type="Script" path="res://scripts/AudioStreamPlayer2D.gd" id="8_pv2ii"]
 
 [node name="world" type="Node2D"]
 
@@ -31,14 +34,35 @@ offset_left = -1.0
 offset_top = 323.0
 offset_right = 715.0
 offset_bottom = 405.0
+placeholder_text = "Type Here"
 script = ExtResource("5_cahbm")
 
 [node name="WorldResponse" type="Label" parent="chat"]
-offset_left = 3.0
-offset_top = 330.0
-offset_right = 716.0
-offset_bottom = 399.0
-text = "TESTINGGG"
+offset_left = 2.0
+offset_top = 261.0
+offset_right = 715.0
+offset_bottom = 402.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+text = "testinggg"
+autowrap_mode = 3
 script = ExtResource("5_okymo")
+
+[node name="escapeinst" type="Label" parent="chat"]
+offset_left = 8.0
+offset_top = 6.0
+offset_right = 237.0
+offset_bottom = 59.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 30
+text = "\"Press Esc to Escape\""
+script = ExtResource("7_aiyee")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(-1, 323)
+stream = ExtResource("7_t1vkv")
+autoplay = true
+script = ExtResource("8_pv2ii")
 
 [connection signal="text_submitted" from="chat/WorldLineEdit" to="chat/WorldLineEdit" method="_on_text_submitted"]
