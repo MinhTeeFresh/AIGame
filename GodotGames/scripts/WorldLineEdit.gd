@@ -48,6 +48,7 @@ func _on_text_submitted(new_text):
 		WorldResponse.response = "..."
 		playerinput = new_text
 		call_GPT(playerinput)
+		# playerinput --> AI
 		chat.dialog = false
 		chat.responded = true
 		hide()
