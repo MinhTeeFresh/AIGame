@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://dm1a1ibogp34m"]
+
+[ext_resource type="Script" path="res://scenes/npc2.gd" id="1_kjeo1"]
+[ext_resource type="Texture2D" uid="uid://df8d8edtnxgmg" path="res://sprites/characters/Untitled_Artwork4.png" id="2_2mweq"]
+[ext_resource type="Script" path="res://scripts/Label.gd" id="3_nys3t"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vag3l"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jopkj"]
+atlas = ExtResource("2_2mweq")
+region = Rect2(96, 144, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fv2sc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jopkj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_228n1"]
+radius = 23.0
+
+[node name="NPC2" type="CharacterBody2D"]
+position = Vector2(621, 58)
+scale = Vector2(2, 2)
+script = ExtResource("1_kjeo1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 7)
+shape = SubResource("CapsuleShape2D_vag3l")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_fv2sc")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(6, 7)
+shape = SubResource("CircleShape2D_228n1")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -73.0
+offset_top = -34.0
+offset_right = 81.0
+offset_bottom = -11.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+text = "\"Press 'E' to interact\""
+script = ExtResource("3_nys3t")
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
