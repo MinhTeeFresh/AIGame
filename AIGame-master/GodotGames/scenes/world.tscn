@@ -15,10 +15,10 @@
 [node name="world" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 867.0
-offset_bottom = 850.0
+offset_left = 1.0
+offset_right = 925.0
+offset_bottom = 861.0
 texture = ExtResource("1_r1nce")
-metadata/_edit_use_anchors_ = true
 
 [node name="NPC" parent="." instance=ExtResource("3_sokjx")]
 position = Vector2(436, 190)
@@ -35,17 +35,17 @@ scale = Vector2(2, 2)
 script = ExtResource("4_2ayif")
 
 [node name="WorldLineEdit" type="LineEdit" parent="chat"]
-offset_left = -1.0
-offset_top = 323.0
-offset_right = 715.0
-offset_bottom = 405.0
+offset_left = 22.0
+offset_top = 307.0
+offset_right = 738.0
+offset_bottom = 389.0
 placeholder_text = "Type Here"
 script = ExtResource("5_cahbm")
 
 [node name="WorldResponse" type="Label" parent="chat"]
-offset_left = 2.0
+offset_left = 20.0
 offset_top = 261.0
-offset_right = 715.0
+offset_right = 755.0
 offset_bottom = 402.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
@@ -66,10 +66,10 @@ text = "\"Press 'Esc' to Escape\""
 script = ExtResource("7_aiyee")
 
 [node name="enterToCont" type="Label" parent="chat"]
-offset_left = 509.0
-offset_top = 394.0
-offset_right = 711.0
-offset_bottom = 417.0
+offset_left = 549.0
+offset_top = 395.0
+offset_right = 759.0
+offset_bottom = 418.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 text = "\"Press 'return' to continue\""
