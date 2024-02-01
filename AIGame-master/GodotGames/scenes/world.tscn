@@ -55,10 +55,10 @@ autowrap_mode = 3
 script = ExtResource("5_okymo")
 
 [node name="escapeinst" type="Label" parent="chat"]
-offset_left = 8.0
-offset_top = 6.0
-offset_right = 237.0
-offset_bottom = 59.0
+offset_left = 10.0
+offset_top = 4.0
+offset_right = 329.0
+offset_bottom = 57.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 30
