@@ -11,10 +11,10 @@ offset_right = 867.0
 offset_bottom = 850.0
 texture = ExtResource("1_r1nce")
 
-[node name="player" parent="." instance=ExtResource("2_lb3l7")]
-position = Vector2(349, 192)
-scale = Vector2(2, 2)
-
 [node name="NPC" parent="." instance=ExtResource("3_sokjx")]
 position = Vector2(422, 191)
+scale = Vector2(2, 2)
+
+[node name="player" parent="." instance=ExtResource("2_lb3l7")]
+position = Vector2(349, 192)
 scale = Vector2(2, 2)
