@@ -1,0 +1,4 @@
+res://scenes/world.tscn
+res://gpt.gd
+res://scripts/WorldLineEdit.gd
+res://scripts/WorldResponse.gd
