@@ -2,3 +2,5 @@ res://scenes/world.tscn
 res://scripts/player.gd
 res://scenes/player.tscn
 res://scripts/WorldLineEdit.gd
+res://scripts/WorldResponse.gd
+res://scripts/npc.gd

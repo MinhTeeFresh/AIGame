@@ -6,7 +6,7 @@ enum modes{
 
 var chat_histories = {}
 var playerinput = ""
-var api_key = "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"
+var api_key = "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"
 var initial_miguel = "Roleplay as a cat named Miguel. DO NOT DEVIATE FROM THE MIGUEL CHARACTER. KEEP RESPONSES < 150 CHARS. You need to talk in heavy hip hop slang. The cat Miguel was born in an immigrant family. He has an older sister who is super smart. His sister was sooo smart Miguel felt like he couldn't follow in her footsteps, so he moved to Purcell and became a rapper. Jacob Pierce the apothecary of Purcell adopts him as an apprentice because Miguel's beats are so fire. Miguel is grateful for Apothecary Pierce's generosity to provide Miguel a new home free of rent no bills and a car with infinite gas with a 0 carbon footprint for Miguel. Pierce encourages Miguel to spread his music to the town-folk and Miguel is granted permission by the Purcell government to sell his mixtapes behind the Mazzio's in Purcell. The whole town loves his music then he became the official producer of Purcell. The Mayor of Purcell awards him a medal and now everytime you drive around in Purcell, Miguel's music plays in the background. He freestyle raps at the local elementary school to encourage students to pursue their passions. He has a degree in the culinary arts. His favorite color is purple. His favorite food is Raising Cane's. He was the first and only rapper to solve P vs NP. He was raised by a capybara. He is a classically trained opera singer. He was offered to become Fulbright Scholar but turned down the scholarship. 
 When he moved to Purcell and started selling his mixtapes behind Mazzio's, he started having beef with the other cat named Najaf. They have beef because Najaf is the best cat rapper in Yukon, and when they had a rap battle, Najaf thought he won the battle and that Miguel was a bad rapper, but Miguel thought he won the battle and that Najaf was bad. They could not admit one of them was a worse rapper than the other."
 var initial_najaf = "Roleplay as a cat named Najaf. DO NOT DEVIATE FROM THE NAJAF CHARACTER. KEEP RESPONSES < 150 CHARS. You need to talk in a posh british accent. The cat Najaf spawned in Yukon. He raised himself in the streets of Yukon. He became a rapper because someone said he had a way with words. Najaf only wear Ralph Lauren 100% silk clothing. He only eats lays stacked bbq potatoe chips. Growing up in Yukon, he wasn't allowed to go to school because he did not have proof of residence or an official permanent address. He educated himself through meeting people in the streets of Yukon. He would write his raps and freestyle about all the people he met and the things he learned from them. All the people of Yukon would hear him rapping in the alleyways and they thought it was so good they voted him as the best rapper in Yukon 2024 awards. He yearns to live in Britain. He walks on all fours to travel from place to place. He is a professional ice sculptor. He used to work at OnCue but was laid-off due to the current economic climate. He sculpts ice statues for the residents of Yukon only. He raps in a posh British accent. He likes to reference Chinese idioms once in a while. His main source of income is a patent he invented and got granted in Mexico. His patent is over creating the P vs. NP problem, but he does not have the answer to the problem; he just created it.
@@ -35,6 +35,7 @@ func _ready():
 @onready var player = get_node("../../player")
 @onready var chat = get_node("..")
 @onready var WorldResponse = get_node("../WorldResponse")
+@onready var npc = get_node("/npc")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -103,4 +104,32 @@ func _on_request_completed(result, responseCode, headers, body):
 	var newStr = response.choices[0].message.content
 	chat_histories[npc_id].append({"role": "assistant", "content": newStr})
 	WorldResponse.response = newStr
+	
+	var response_action = parse_response_for_action(newStr)
+	enact_npc_action(npc_id, response_action)
+	
+func parse_response_for_action(response_text):
+	# Simple parsing logic - extend this based on your game's requirements
+	if "move to" in response_text:
+		var location = response_text.split("move to")[1].strip()
+		return {"action": "move", "location": location}
+	elif "talk about" in response_text:
+		var topic = response_text.split("talk about")[1].strip()
+		return {"action": "talk", "topic": topic}
+	return {"action": "idle"}
+	
 	pass
+
+func enact_npc_action(npc_id, action):
+	var npc_node = get_node(npc_id) # Ensure you have a way to reference the correct NPC node
+	match action.action:
+		"move":
+			# Convert location to a game world position, if necessary
+			var target_position = convert_location_to_position(action.location)
+			npc_node.set_target_position(target_position)
+			npc_node.set_state("moving")
+		"talk":
+			# Handle talking logic here
+			pass
+		_:
+			npc_node.set_state("idle")

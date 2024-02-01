@@ -1,6 +1,5 @@
 extends Label
 
-var response = 'hey'
 var response = "hello hello"
 
 # Called when the node enters the scene tree for the first time.
