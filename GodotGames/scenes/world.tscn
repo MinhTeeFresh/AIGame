@@ -44,6 +44,7 @@ offset_right = 715.0
 offset_bottom = 402.0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 13
 text = "testinggg"
 autowrap_mode = 3
 script = ExtResource("5_okymo")
