@@ -1,9 +1,8 @@
-[gd_scene load_steps=54 format=3 uid="uid://cbwdwr7fmy7fr"]
+[gd_scene load_steps=53 format=3 uid="uid://cbwdwr7fmy7fr"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_ignxc"]
 [ext_resource type="Texture2D" uid="uid://3kkcb5fk3n4l" path="res://sprites/characters/player.png" id="2_hl8n1"]
 [ext_resource type="Texture2D" uid="uid://ssiw7tj6uvtj" path="res://sprites/characters/cats.png" id="3_sgrb3"]
-[ext_resource type="Script" path="res://scripts/LineEdit.gd" id="4_g1opn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qonvr"]
 radius = 6.0
@@ -390,14 +389,6 @@ radius = 17.0
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_ignxc")
 
-[node name="LineEdit" type="LineEdit" parent="."]
-offset_left = -55.0
-offset_top = 23.0
-offset_right = 57.0
-offset_bottom = 39.0
-theme_override_font_sizes/font_size = 5
-script = ExtResource("4_g1opn")
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 7)
 shape = SubResource("CapsuleShape2D_qonvr")
@@ -412,7 +403,5 @@ animation = &"cat"
 position = Vector2(2, 8)
 shape = SubResource("CircleShape2D_ppocw")
 
-[connection signal="text_submitted" from="LineEdit" to="." method="_on_line_edit_text_submitted"]
-[connection signal="visibility_changed" from="LineEdit" to="." method="_on_line_edit_visibility_changed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
