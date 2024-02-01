@@ -3,14 +3,14 @@ extends CharacterBody2D
 const speed = 100
 var current_dir = "none"
 var enemy = null
-var dialog = false
-var playerinput = ""
 
 func _ready():
 	$AnimatedSprite2D.play("cat")
+	
+@onready var chat = get_node("../chat")
 
 func _physics_process(delta):
-	if dialog == false:
+	if chat.dialog == false:
 		player_movement(delta)
 	
 func player_movement(delta):

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://1x6b5yspn3ss"]
+[gd_scene load_steps=7 format=3 uid="uid://1x6b5yspn3ss"]
 
 [ext_resource type="Texture2D" uid="uid://xdxihmbgro" path="res://sprites/objects/newbackground.png" id="1_r1nce"]
 [ext_resource type="PackedScene" uid="uid://cbwdwr7fmy7fr" path="res://scenes/player.tscn" id="2_lb3l7"]
 [ext_resource type="PackedScene" uid="uid://dqoie45rsj0c5" path="res://scenes/npc.tscn" id="3_sokjx"]
+[ext_resource type="Script" path="res://scripts/chat.gd" id="4_2ayif"]
 [ext_resource type="Script" path="res://scripts/WorldLineEdit.gd" id="5_cahbm"]
 [ext_resource type="Script" path="res://scripts/WorldResponse.gd" id="5_okymo"]
 
@@ -22,14 +23,17 @@ scale = Vector2(2, 2)
 position = Vector2(341, 192)
 scale = Vector2(2, 2)
 
-[node name="WorldLineEdit" type="LineEdit" parent="."]
+[node name="chat" type="Node" parent="."]
+script = ExtResource("4_2ayif")
+
+[node name="WorldLineEdit" type="LineEdit" parent="chat"]
 offset_left = -1.0
 offset_top = 323.0
 offset_right = 715.0
 offset_bottom = 405.0
 script = ExtResource("5_cahbm")
 
-[node name="WorldResponse" type="Label" parent="."]
+[node name="WorldResponse" type="Label" parent="chat"]
 offset_left = 3.0
 offset_top = 330.0
 offset_right = 716.0
@@ -37,4 +41,4 @@ offset_bottom = 399.0
 text = "TESTINGGG"
 script = ExtResource("5_okymo")
 
-[connection signal="text_submitted" from="WorldLineEdit" to="WorldLineEdit" method="_on_text_submitted"]
+[connection signal="text_submitted" from="chat/WorldLineEdit" to="chat/WorldLineEdit" method="_on_text_submitted"]
