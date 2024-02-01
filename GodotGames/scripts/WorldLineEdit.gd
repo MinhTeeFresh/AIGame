@@ -5,7 +5,7 @@ enum modes{
 }
 
 var playerinput = ""
-var api_key = "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"
+var api_key = "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"
 var max_tokens = 1024
 var temperature = 0.5
 var url = "https://api.openai.com/v1/chat/completions"
