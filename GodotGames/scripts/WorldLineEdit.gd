@@ -17,6 +17,7 @@ func _process(delta):
 func _on_text_submitted(new_text):
 	if !new_text.is_empty():
 		playerinput = new_text
+		# playerinput --> AI
 		chat.dialog = false
 		chat.responded = true
 		hide()

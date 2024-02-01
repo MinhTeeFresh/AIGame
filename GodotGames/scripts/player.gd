@@ -10,7 +10,7 @@ func _ready():
 @onready var chat = get_node("../chat")
 
 func _physics_process(delta):
-	if chat.dialog == false:
+	if chat.dialog == false and chat.responded == false:
 		player_movement(delta)
 	
 func player_movement(delta):
