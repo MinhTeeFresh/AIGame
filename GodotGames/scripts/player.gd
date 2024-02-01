@@ -74,6 +74,7 @@ func play_anim(movement):
 			
 func _on_area_2d_body_entered(body):
 	enemy = body.get_name()
+	print(enemy)
 
 func _on_area_2d_body_exited(body):
 	enemy = null

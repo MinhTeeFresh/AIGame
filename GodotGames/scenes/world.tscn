@@ -65,4 +65,8 @@ stream = ExtResource("7_t1vkv")
 autoplay = true
 script = ExtResource("8_pv2ii")
 
+[node name="NPC2" parent="." instance=ExtResource("3_sokjx")]
+position = Vector2(579, 82)
+scale = Vector2(2, 2)
+
 [connection signal="text_submitted" from="chat/WorldLineEdit" to="chat/WorldLineEdit" method="_on_text_submitted"]
