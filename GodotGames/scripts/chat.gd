@@ -27,7 +27,7 @@ func _input(event):
 		WorldLineEdit.hide()
 		WorldLineEdit.clear()
 		WorldResponse.hide()
-		escapeinst.show()
+		escapeinst.hide()
 		
 	if Input.is_action_pressed('e_key') and player.enemy != null and player.enemy != "player" and dialog == false:
 		dialog = true

@@ -41,6 +41,7 @@ func _on_text_submitted(new_text):
 		var currentMode = modes.chat
 		playerinput = new_text
 		call_GPT(playerinput)
+		# playerinput --> AI
 		chat.dialog = false
 		chat.responded = true
 		hide()
